@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Access info</th>
+      <th>Type</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Postcode</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Bedrooms</th>
+      <th>Sf entry</th>
+      <th>Sf bathroom</th>
+      <th>Sf bedroom</th>
+      <th>Roll shower</th>
+      <th>Price</th>
+      <th>Availability</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= post.access_info %></td>
+        <td><%= post.type_id %></td>
+        <td><%= post.country %></td>
+        <td><%= post.city %></td>
+        <td><%= post.postcode %></td>
+        <td><%= post.latitude %></td>
+        <td><%= post.longitude %></td>
+        <td><%= post.bedrooms %></td>
+        <td><%= post.sf_entry %></td>
+        <td><%= post.sf_bathroom %></td>
+        <td><%= post.sf_bedroom %></td>
+        <td><%= post.roll_shower %></td>
+        <td><%= post.price %></td>
+        <td><%= post.availability %></td>
+        <td><%= post.user_id %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

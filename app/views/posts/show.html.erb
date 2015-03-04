@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Access info:</strong>
+  <%= @post.access_info %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @post.type %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @post.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @post.city %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @post.postcode %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @post.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @post.longitude %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @post.bedrooms %>
+</p>
+
+<p>
+  <strong>Sf entry:</strong>
+  <%= @post.sf_entry %>
+</p>
+
+<p>
+  <strong>Sf bathroom:</strong>
+  <%= @post.sf_bathroom %>
+</p>
+
+<p>
+  <strong>Sf bedroom:</strong>
+  <%= @post.sf_bedroom %>
+</p>
+
+<p>
+  <strong>Roll shower:</strong>
+  <%= @post.roll_shower %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @post.price %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @post.availability %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

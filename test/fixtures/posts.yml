@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  access_info: MyText
+  type: 1
+  country: MyString
+  city: MyString
+  postcode: MyString
+  latitude: 1.5
+  longitude: 1.5
+  bedrooms: 1
+  sf_entry: false
+  sf_bathroom: false
+  sf_bedroom: false
+  roll_shower: false
+  price: MyString
+  availability: MyString
+  user_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  access_info: MyText
+  type: 1
+  country: MyString
+  city: MyString
+  postcode: MyString
+  latitude: 1.5
+  longitude: 1.5
+  bedrooms: 1
+  sf_entry: false
+  sf_bathroom: false
+  sf_bedroom: false
+  roll_shower: false
+  price: MyString
+  availability: MyString
+  user_id: 1
