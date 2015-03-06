@@ -15,6 +15,10 @@ gem 'ransack', '~> 1.6.3'
 gem 'figaro', '~> 1.1.0'
 gem 'devise', '~> 3.4.1'
 gem 'geocoder', '~> 1.2.7'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.1.0'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-sass', '~> 4.3.1'
 
 group :development, :test do
   gem 'byebug'

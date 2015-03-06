@@ -27,6 +27,24 @@
     <%= f.label :type_id %><br>
     <%= f.number_field :type_id %>
   </div>
+
+   <%= f.fields_for :photos do |p| %>
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+     </div>
+
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+     </div>
+
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+     </div>
+   <% end %>
+
   <div class="field">
     <%= f.label :country %><br>
     <%= f.text_field :country %>
