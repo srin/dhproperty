@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [200,200]
   end
 
-  storage :fog
+  storage :file
   
     def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
