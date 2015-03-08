@@ -1,6 +1,6 @@
-class CreateTypes < ActiveRecord::Migration
+class CreateProptypes < ActiveRecord::Migration
   def change
-    create_table :types do |t|
+    create_table :proptypes do |t|
       t.string :name
 
       t.timestamps null: false

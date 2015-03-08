@@ -5,9 +5,14 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @posts = Post.all
-    respond_with(@posts)
+    @posts = @q.result(distinct: true)
+    
   end
+
+  def search
+  index
+  render :index
+end
 
   def show
     @photos = @post.photos.all
@@ -27,15 +32,22 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.save
     
-    respond_to do |format|
+    if params[:photos].blank?
+    redirect_to @post
+    flash[:success] = "Post successfully created" 
+    else
+
       if params[:photos]['image'].each do |a|
           @photo = @post.photos.create!(:image => a, :post_id => @post.id)
        end
-       format.html { redirect_to @post, notice: 'Post was successfully created.' }
+       redirect_to @post
+       flash[:success] = "Post successfully created" 
      else
        format.html { render action: 'new' }
      end
-   end
+   
+    end
+    
   end
 
   def update
@@ -54,6 +66,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :access_info, :country, :city, :postcode, :latitude, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :availability, :user_id, :type_id, :image)
+      params.require(:post).permit(:title, :description, :access_info, :country, :state, :city, :postcode, :latitude, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :availability, :user_id, :proptype_id, :image, :avatar, :longterm, :shortterm, :holiday, :price_info)
     end
 end

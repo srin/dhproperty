@@ -21,8 +21,12 @@
 
 					<div class="homeactions" align="center">
 						<div class="form-inline" id="search">
-          					<input type="text" class="form-control" placeholder="Search by town / city">
-          					<button type="submit" class="btn btn-success">Submit</button>
+          				<%= search_form_for @q, url: search_posts_path,
+                        html: { method: :post } do |f| %>
+
+                        <%= f.search_field :country_or_city_cont, :placeholder => "Town / city / country"%>
+                        <%= f.submit class: "btn btn-success" %>
+                        <%end%>
         				</div>	
 					</div>
 				</div>				
@@ -32,8 +36,8 @@
 				
 
 					<div id="bottombuttons">
-						<%= link_to "List a property", "#", class: "btn btn-primary btn-lg" %>
-						<%= link_to "Just browse", "#", class: "btn btn-primary btn-lg" %>
+						<%= link_to "List a property", new_post_path, class: "btn btn-primary btn-lg" %>
+						<%= link_to "Just browse", posts_path, class: "btn btn-primary btn-lg" %>
 					</div>
 								
 			</div>

@@ -1,97 +1,85 @@
 
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <%= image_tag @post.avatar_url %>
 
+      <hr>    
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+      <div class="panel panel-primary" id="mapbox">
+        <div class="panel-heading">
+          <h3 class="panel-title">Location</h3>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+        <div class="panel-body">
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=370x370&sensor=false&zoom=14&markers=#{@post.latitude}%2C#{@post.longitude}" %>
+            
+        
+        </div>
 
-<p>
-  <strong>Access info:</strong>
-  <%= @post.access_info %>
-</p>
+      </div>
+    </div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @post.type %>
-</p>
+    <div class="col-md-6 col-md-offset-1">
 
-<p>
-  <strong>Country:</strong>
-  <%= @post.country %>
-</p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%=@post.title%></h3>
+        </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @post.city %>
-</p>
+        <div class="panel-body">
+          <h4><strong>Description</strong></h4>
+          <h5><%= @post.description %> </h5>
+          <hr>
+          <h4><strong>Property details</strong>
+          <h5>Location: <%=@post.city%>, <%= @post.country_name  %>
+          <h5>Property type: <%=@post.proptype.name %>
+          <h5>Number of bedrooms: <%=@post.bedrooms %>
+          <h5>Step-free access to property: &nbsp;<%= icon 'check' if @post.sf_entry == true %> <%= icon 'times' if @post.sf_entry == false %></h5>
+          <h5>Step-free access to a bedroom: &nbsp; <%= icon 'check' if @post.sf_bedroom == true %> <%= icon 'times' if @post.sf_bedroom == false %></h5>
+          <h5>Step-free access to a bathroom: &nbsp;<%= icon 'check' if @post.sf_bathroom == true %> <%= icon 'times' if @post.sf_bathroom == false %></h5>
+          <h5>Roll in shower: &nbsp;<%= icon 'check' if @post.roll_shower == true%> <%= icon 'times' if @post.roll_shower == false %></h5>
+          <hr>
+          <h4><strong>Availability</strong></h4>
+          <h5>Holiday rental: &nbsp;<%= icon 'check' if @post.holiday == true%><%= icon 'times' if @post.holiday == false %></h5>
+          <h5>Short-term rental (between 1 and 6 months): &nbsp;<%= icon 'check' if @post.shortterm == true%><%= icon 'times' if @post.shortterm == false %></h5>
+          <h5>Long-term rental (greater than 6 months): &nbsp;<%= icon 'check' if @post.longterm == true%><%= icon 'times' if @post.longterm == false %></h5>
+          <hr>
+          <h4><strong>Price</strong></h4>
+          <h5><%=@post.price%>&nbsp;<%=@post.price_info%>
+          <hr>
+          <h4><strong>Additional access information</strong></h4>
+          <h5><%=@post.access_info %></h5> 
 
-<p>
-  <strong>Postcode:</strong>
-  <%= @post.postcode %>
-</p>
+          <%= link_to "Contact host", new_post_order_path(@post.id), class: "btn btn-success" %>
+        </div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @post.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @post.longitude %>
-</p>
-
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @post.bedrooms %>
-</p>
-
-<p>
-  <strong>Sf entry:</strong>
-  <%= @post.sf_entry %>
-</p>
-
-<p>
-  <strong>Sf bathroom:</strong>
-  <%= @post.sf_bathroom %>
-</p>
-
-<p>
-  <strong>Sf bedroom:</strong>
-  <%= @post.sf_bedroom %>
-</p>
-
-<p>
-  <strong>Roll shower:</strong>
-  <%= @post.roll_shower %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @post.price %>
-</p>
-
-<p>
-  <strong>Availability:</strong>
-  <%= @post.availability %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<% @photos.each do |p| %>
-  <%= image_tag p.image_url %>
+      </div>
   
-<% end %>    
       
+    </div>
+    
+  </div>
+  
+
+</div>
+
+<div class="row">
+  <div class="col-md-12" id="gallery">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Gallery</h3>
+      </div>
+
+      <div class="panel-body">
+      <% @photos.each do |p| %>
+      <%= image_tag p.image_url %>
+    <% end %>    
+      </div>
+    </div>
+  </div>
+</div>
 
   
 

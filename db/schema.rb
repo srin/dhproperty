@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304152525) do
+ActiveRecord::Schema.define(version: 20150308191642) do
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "requirements"
+    t.integer  "post_id"
+  end
 
   create_table "photos", force: :cascade do |t|
     t.integer  "post_id"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image",      default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -39,10 +50,16 @@ ActiveRecord::Schema.define(version: 20150304152525) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "type_id"
+    t.string   "avatar"
+    t.string   "price_info"
+    t.integer  "proptype_id"
+    t.boolean  "longterm"
+    t.boolean  "shortterm"
+    t.boolean  "holiday"
+    t.string   "state"
   end
 
-  create_table "types", force: :cascade do |t|
+  create_table "proptypes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

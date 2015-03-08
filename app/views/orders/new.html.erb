@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+	<h2>Make an enquiry</h2>
+
+	<%= form_for [@post, @order], url: post_orders_path(@post.id) do |f| %>
+	    <% if @post.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+	        <ul>
+	        <% @post.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+
+	        <div class="panel-body">
+
+	          <div class="field">
+	            <%= f.label :name, "Name" %><br>
+	            <%= f.text_field :name, class: "form-control" %>
+	          </div>
+	          <div class="field">
+	            <%= f.label :email, "Email" %><br>
+	            <%= f.text_field :email, class: "form-control"  %>
+	          </div>
+	  
+	          <div class="field">
+	            <%= f.label :start_date, "Preferred start date" %><br>
+	            <%= f.date_select :start_date, class: "form-control"  %>
+	          </div>
+
+	          <div class="field">
+	            <%= f.label :end_date, "Preferred end date" %><br>
+	            <%= f.date_select :end_date, class: "form-control"  %>
+	          </div>
+
+	          <div class="field">
+	            <%= f.label :requirements, "Do you have any specific requirements or queries?" %><br>
+	            <%= f.text_area :requirements, class: "form-control"  %>
+	          </div>
+
+	          <div class="actions">
+	            <%= f.submit "Submit", class: "btn btn-success" %>      
+	          </div>
+
+	      <%end%>
+	</div>
+</div>
