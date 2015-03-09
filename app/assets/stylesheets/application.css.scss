@@ -6928,7 +6928,10 @@ input[type="checkbox"] {
 
 #bottombuttons {
 	text-align: center;
-	margin-top: 15px;
+	margin-top: 15px; 
+  a:visited {
+    color: #eee;
+  }
 }
 
 #headersearch {

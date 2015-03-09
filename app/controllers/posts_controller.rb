@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 3)
     
   end
 

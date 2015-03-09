@@ -25,6 +25,7 @@
 
   <div id="title" align="center">
     <h1>Current listings</h1>
+      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
   </div>
 
   <% @posts.each do |post| %>
