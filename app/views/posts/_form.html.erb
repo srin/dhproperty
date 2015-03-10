@@ -42,8 +42,8 @@
     <%= f.label :avatar, "Select a featured image" %><br>
     <%= f.file_field :avatar, class: "form-control" %>
     </div>
-    
-    <%= f.fields_for :photos, @post.photos.build, :html => {:multipart => true}  do |i|%>
+    <!-- 
+    <%= f.fields_for :photos, @post.photos.build do |i|%>
     <%= i.label "Image" %>
     <%= i.file_field :photo %>
 
@@ -52,7 +52,7 @@
 
     <%= i.label "Image" %>
     <%= i.file_field :photo %>
-    <% end %> 
+    <% end %>  -->
 
     <div class="field">
       <%= f.label :country, "Country" %><br>
