@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="col-md-4">
-      <%= image_tag @post.avatar_url %>
+      <%= image_tag @post.avatar.url(:medium) %>
 
       <hr>    
 
@@ -74,7 +74,7 @@
 
       <div class="panel-body">
       <% @photos.each do |p| %>
-      <%= image_tag p.image_url %>
+      <%= image_tag p.photo.url(:medium) %>
     <% end %>    
       </div>
     </div>

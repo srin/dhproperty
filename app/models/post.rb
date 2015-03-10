@@ -19,5 +19,7 @@ class Post < ActiveRecord::Base
 	  [country, state, city, postcode].compact.join(', ')
 	end
 
-	mount_uploader :avatar, AvatarUploader
+	has_attached_file :avatar, :styles => { :medium => "400x400!", :thumb => "200x200!" }, :default_url => "/images/:style/missing.png"
+  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 end

@@ -21,7 +21,6 @@ end
 
   def new
     @post = current_user.posts.build
-    @photo = @post.photos.build
     respond_with(@post)
   end
 
@@ -31,23 +30,7 @@ end
   def create
     @post = current_user.posts.build(post_params)
     @post.save
-    
-    if params[:photos].blank?
-    redirect_to @post
-    flash[:success] = "Post successfully created" 
-    else
-
-      if params[:photos]['image'].each do |a|
-          @photo = @post.photos.create!(:image => a, :post_id => @post.id)
-       end
-       redirect_to @post
-       flash[:success] = "Post successfully created" 
-     else
-       format.html { render action: 'new' }
-     end
-   
-    end
-    
+    respond_with(@post)
   end
 
   def update
@@ -66,6 +49,6 @@ end
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :access_info, :country, :state, :city, :postcode, :latitude, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :availability, :user_id, :proptype_id, :image, :avatar, :longterm, :shortterm, :holiday, :price_info)
+      params.require(:post).permit(:title, :description, :access_info, :country, :state, :city, :postcode, :latitude, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :availability, :user_id, :proptype_id, :avatar, :longterm, :shortterm, :holiday, :price_info, photos_attributes: [:id,:photo])
     end
 end

@@ -42,23 +42,17 @@
     <%= f.label :avatar, "Select a featured image" %><br>
     <%= f.file_field :avatar, class: "form-control" %>
     </div>
+    
+    <%= f.fields_for :photos, @post.photos.build, :html => {:multipart => true}  do |i|%>
+    <%= i.label "Image" %>
+    <%= i.file_field :photo %>
 
-     
-       <div class="field">
-         <%= f.label :image, "Additional image 1 (optional)" %><br>
-         <%= f.file_field :image, :multiple => true, name: "photos[image][]", default: "", class: "form-control" %>
-       </div>
+    <%= i.label "Image" %>
+    <%= i.file_field :photo %>
 
-       <div class="field">
-         <%= f.label :image, "Additional image 2 (optional)" %><br>
-         <%= f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control" %>
-       </div>
-
-       <div class="field">
-         <%= f.label :image, "Additional image 3 (optional"  %><br>
-         <%= f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control" %>
-       </div>
-     
+    <%= i.label "Image" %>
+    <%= i.file_field :photo %>
+    <% end %> 
 
     <div class="field">
       <%= f.label :country, "Country" %><br>

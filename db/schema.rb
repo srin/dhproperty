@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310190914) do
+ActiveRecord::Schema.define(version: 20150310213012) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20150310190914) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -47,14 +51,18 @@ ActiveRecord::Schema.define(version: 20150310190914) do
     t.string   "price"
     t.string   "availability"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "price_info"
     t.integer  "proptype_id"
     t.boolean  "longterm"
     t.boolean  "shortterm"
     t.boolean  "holiday"
     t.string   "state"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "proptypes", force: :cascade do |t|

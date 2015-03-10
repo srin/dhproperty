@@ -31,7 +31,7 @@
   <% @posts.each do |post| %>
     <div class="col-md-8 col-md-offset-2" id="listing">
       <div class="col-md-4" id="listimage">
-        <%= image_tag post.avatar_url(:thumb) %>
+        <%= image_tag post.avatar.url(:thumb) %>
       </div>
 
       <div class="col-md-4" id="listtitle">
