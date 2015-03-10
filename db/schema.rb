@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150308191642) do
     t.string   "avatar"
     t.string   "price_info"
     t.integer  "proptype_id"
+    t.string   "rentaltype"
     t.boolean  "longterm"
     t.boolean  "shortterm"
     t.boolean  "holiday"
