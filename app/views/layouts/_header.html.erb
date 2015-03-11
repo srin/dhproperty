@@ -30,7 +30,7 @@
         
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
         <li><%= link_to "My account", edit_user_registration_path %></li>
-        <li class="list-property"><%= link_to "List a Property", new_post_path, class: "btn btn-list-property list-property" %></li>
+        <li><%= link_to "List a Property", new_post_path, class: "btn btn-list-property" %></li>
 
         
         <%else%>

@@ -5,7 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Proptype.create(name: "Home")
-Proptype.create(name: "Apartment")
-Proptype.create(name: "Hotel")

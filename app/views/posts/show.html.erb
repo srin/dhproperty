@@ -33,7 +33,7 @@
           <hr>
           <h4><strong>Property details</strong>
           <h5>Location: <%=@post.city%>, <%= @post.country_name  %>
-          <h5>Property type: <%=@post.proptype.name %>
+          <h5>Property type: <%=@post.proptype %>
           <h5>Number of bedrooms: <%=@post.bedrooms %>
           <h5>Step-free access to property: &nbsp;<%= icon 'check' if @post.sf_entry == true %> <%= icon 'times' if @post.sf_entry == false %></h5>
           <h5>Step-free access to a bedroom: &nbsp; <%= icon 'check' if @post.sf_bedroom == true %> <%= icon 'times' if @post.sf_bedroom == false %></h5>
@@ -63,25 +63,6 @@
   
 
 </div>
-
-<!-- <div class="row">
-  <div class="col-md-12" id="gallery">
-
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Gallery</h3>
-      </div>
-
-      <div class="panel-body">
-      <% @photos.each do |p| %>
-      <%= image_tag p.photo.url(:medium) %>
-    <% end %>    
-      </div>
-    </div>
-  </div>
-</div> -->
-
-  
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

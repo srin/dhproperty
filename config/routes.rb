@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/new'
-
-  get 'orders/show'
-
   get 'static_pages/home'
 
   get 'static_pages/about'
@@ -11,11 +7,14 @@ Rails.application.routes.draw do
 
   get 'static_pages/faq'
 
+  get 'orders/new'
+
+  get 'orders/show'
+
   resources :photos
 
   devise_for :users
-
-  resources :posts do
+   resources :posts do
       resources :orders, only: [:new, :create]
     end
 
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
       match 'search' => 'posts#search', via: [:get, :post], as: :search
     end
   end
-
 
   root 'static_pages#home'
 end

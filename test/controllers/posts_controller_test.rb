@@ -18,7 +18,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: { access_info: @post.access_info, availability: @post.availability, bedrooms: @post.bedrooms, city: @post.city, country: @post.country, description: @post.description, latitude: @post.latitude, longitude: @post.longitude, postcode: @post.postcode, price: @post.price, roll_shower: @post.roll_shower, sf_bathroom: @post.sf_bathroom, sf_bedroom: @post.sf_bedroom, sf_entry: @post.sf_entry, title: @post.title, type: @post.type, user_id: @post.user_id }
+      post :create, post: { access_info: @post.access_info, bedrooms: @post.bedrooms, city: @post.city, country: @post.country, description: @post.description, holiday: @post.holiday, latitute: @post.latitute, longitude: @post.longitude, longterm: @post.longterm, postcode: @post.postcode, price: @post.price, price_info: @post.price_info, proptype: @post.proptype, roll_shower: @post.roll_shower, sf_bathroom: @post.sf_bathroom, sf_bedroom: @post.sf_bedroom, sf_entry: @post.sf_entry, shortterm: @post.shortterm, state: @post.state, title: @post.title, user_id: @post.user_id }
     end
 
     assert_redirected_to post_path(assigns(:post))
@@ -35,7 +35,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should update post" do
-    patch :update, id: @post, post: { access_info: @post.access_info, availability: @post.availability, bedrooms: @post.bedrooms, city: @post.city, country: @post.country, description: @post.description, latitude: @post.latitude, longitude: @post.longitude, postcode: @post.postcode, price: @post.price, roll_shower: @post.roll_shower, sf_bathroom: @post.sf_bathroom, sf_bedroom: @post.sf_bedroom, sf_entry: @post.sf_entry, title: @post.title, type: @post.type, user_id: @post.user_id }
+    patch :update, id: @post, post: { access_info: @post.access_info, bedrooms: @post.bedrooms, city: @post.city, country: @post.country, description: @post.description, holiday: @post.holiday, latitute: @post.latitute, longitude: @post.longitude, longterm: @post.longterm, postcode: @post.postcode, price: @post.price, price_info: @post.price_info, proptype: @post.proptype, roll_shower: @post.roll_shower, sf_bathroom: @post.sf_bathroom, sf_bedroom: @post.sf_bedroom, sf_entry: @post.sf_entry, shortterm: @post.shortterm, state: @post.state, title: @post.title, user_id: @post.user_id }
     assert_redirected_to post_path(assigns(:post))
   end
 

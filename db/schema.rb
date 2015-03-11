@@ -11,27 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310213012) do
+ActiveRecord::Schema.define(version: 20150311132543) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.text     "requirements"
     t.integer  "post_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "post_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string   "title"
+    t.string   "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -39,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150310213012) do
     t.text     "description"
     t.text     "access_info"
     t.string   "country"
+    t.string   "state"
     t.string   "city"
     t.string   "postcode"
     t.float    "latitude"
@@ -49,23 +47,18 @@ ActiveRecord::Schema.define(version: 20150310213012) do
     t.boolean  "sf_bedroom"
     t.boolean  "roll_shower"
     t.string   "price"
-    t.string   "availability"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.string   "price_info"
-    t.integer  "proptype_id"
-    t.string   "rentaltype"
+    t.string   "proptype"
     t.boolean  "longterm"
     t.boolean  "shortterm"
     t.boolean  "holiday"
-    t.string   "state"
-  end
-
-  create_table "proptypes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

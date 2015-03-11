@@ -3,11 +3,15 @@
 one:
   name: MyString
   email: MyString
-  start_date: 2015-03-08
-  end_date: 2015-03-08
+  start_date: 2015-03-11
+  end_date: 2015-03-11
+  requirements: MyText
+  post_id: 1
 
 two:
   name: MyString
   email: MyString
-  start_date: 2015-03-08
-  end_date: 2015-03-08
+  start_date: 2015-03-11
+  end_date: 2015-03-11
+  requirements: MyText
+  post_id: 1
