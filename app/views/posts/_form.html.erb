@@ -1,47 +1,64 @@
-<div class="col-md-6 col-md-offset-3">
-  <%= form_for(@post) do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+ <section>
+  <div class="row">
+    <div class="background">
+      <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+         <div class="create-new-listing-panel">
 
-        <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <%= form_for(@post) do |f| %>
+          <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :title, class: "formlabel" %><br>
+            <%= f.text_field :title, class: "form-control"%>
+          </div>
+          <div class="field">
+            <%= f.label :description, class: "formlabel" %><br>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+
+          <br>
+          
+          <%= f.label "What basis is the listing available on?", class: "formlabel" %>
+
+          <div class="field">
+            <ul style="list-style: none;">
+              <li>
+
+           <%= f.check_box :longterm%>
+           <%= f.label :longterm, "Long-term rental (i.e. > 6 months)", class: "formlabel"%><br>
+ 
+
+            <%= f.check_box :shortterm %>
+            <%= f.label :shortterm, "Short-term rental (i.e. 1 - 6 months)", class: "formlabel" %><br>
+             
+            <%= f.check_box :holiday%>
+            <%= f.label :holiday, "Holiday rental", class: "formlabel" %><br>
+
+          </li>
         </ul>
-      </div>
-    <% end %>
 
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class: "form-control"%>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-  
-    <%= f.label "What basis is the listing available on?" %>
-    <div class="field">
+          </div>
 
-      <%= f.label :longterm, "Long-term rental (i.e. > 6 months" %><br>
-      <%= f.check_box :longterm, class: "form-control"%>
-      <%= f.label :shortterm, "Short-term rental (i.e. between 1 and 6 months" %>
-      <%= f.check_box :shortterm, class: "form-control" %>
-      <%= f.label :holiday, "Holiday rental" %>
-      <%= f.check_box :holiday, class: "form-control" %>
-        
-    </div>
-    
-    <div class="field">
-      <%= f.label :proptype_id, "Please choose the property category"%> <br>
-      <%= f.collection_select :proptype_id, Proptype.all, :id, :name, :prompt => "Please select", class: "form-control" %> <br>
-    </div>
+          <div class="field">
+            <%= f.label :proptype_id, "Please choose the property category", class: "formlabel"%> <br>
+            <%= f.collection_select :proptype_id, Proptype.all, :id, :name, :prompt => "Please select", class: "form-control" %> <br>
+          </div>
 
-    <div class="field">
-    <%= f.label :avatar, "Select a featured image" %><br>
-    <%= f.file_field :avatar, class: "form-control" %>
-    </div>
+          <div class="field">
+            <%= f.label :avatar, "Select a featured image", class: "formlabel" %><br>
+            <%= f.file_field :avatar, class: "form-control" %>
+          </div>
     <!-- 
     <%= f.fields_for :photos, @post.photos.build do |i|%>
     <%= i.label "Image" %>
@@ -55,59 +72,73 @@
     <% end %>  -->
 
     <div class="field">
-      <%= f.label :country, "Country" %><br>
+      <%= f.label :country, "Country", class: "formlabel" %><br>
       <%= f.country_select :country, :prompt => "Please select",  class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :state, "State (if applicable)" %><br>
+      <%= f.label :state, "State (if applicable)" , class: "formlabel"%><br>
       <%= f.text_field :state, class: "form-control" %>
     </div>
+
     <div class="field">
-      <%= f.label :city, "Town / city" %><br>
+      <%= f.label :city, "Town / city" , class: "formlabel"%><br>
       <%= f.text_field :city, class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :postcode, "Postcode / Zipcode" %><br>
+      <%= f.label :postcode, "Postcode / Zipcode" , class: "formlabel"%><br>
       <%= f.text_field :postcode, class: "form-control" %>
     </div>
-  
+
     <div class="field">
-      <%= f.label :bedrooms, "How many bedrooms are available?" %><br>
+      <%= f.label :bedrooms, "How many bedrooms are available?", class: "formlabel" %><br>
       <%= f.number_field :bedrooms, class: "form-control" %>
     </div>
 
+    <br>
+
     <div class="field">
-      <%= f.label :sf_entry, "Is there step-free access to the property?" %>
-      <%= f.check_box :sf_entry, class: "form-control" %>
+      <%= f.check_box :sf_entry%>
+      <%= f.label :sf_entry, "There is step-free access to the property.", class: "formlabel" %>
     </div>
 
     <div class="field">
-      <%= f.label :sf_bathroom, "Is there step-free access to a bathroom?" %>
-      <%= f.check_box :sf_bathroom, class: "form-control" %>
+      <%= f.check_box :sf_bathroom%>
+      <%= f.label :sf_bathroom, "There is step-free access to a bathroom." , class: "formlabel"%>
     </div>
+
     <div class="field">
-      <%= f.label :sf_bedroom, "Is there step-free access to a bedroom?" %>
-      <%= f.check_box :sf_bedroom, class: "form-control" %>
+      <%= f.check_box :sf_bedroom%>
+      <%= f.label :sf_bedroom, "Is there step-free access to a bedroom." , class: "formlabel"%>
     </div>
+
     <div class="field">
-      <%= f.label :roll_shower, "Is a roll-in shower available?" %><br>
-      <%= f.check_box :roll_shower, class: "form-control" %>
+      <%= f.check_box :roll_shower%>
+      <%= f.label :roll_shower, "There is a roll-in shower available.", class: "formlabel" %> 
     </div>
+
     <div class="field">
-      <%= f.label :price, "Price (include currency)" %><br>
+      <%= f.label :price, "Price (include currency)", class: "formlabel" %><br>
       <%= f.text_field :price, class: "form-control" %>
-      <%= f.label :price_info, "Indicate if this amount is on a nightly / weekly / monthly basis" %><br>
-      <%= f.select :price_info, ['per night', 'per week', 'per month'], class: "form-control" %>
+      <%= f.label :price_info, "Indicate if this amount is on a nightly / weekly / monthly basis", class: "formlabel" %><br>
+      <%= f.select :price_info, ['per night', 'per week', 'per month']%>
     </div>
     
     <div class="field">
-      <%= f.label :access_info, "Please share other useful accessibility information on the property" %><br>
+      <%= f.label :access_info, "Please share other useful accessibility information on the property", class: "formlabel" %><br>
       <%= f.text_area :access_info, class: "form-control" %>
     </div>
 
+    <br>
+
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit  "Post Property", class: "btn btn-primary"  %>
     </div>
-  <% end %>
+    <% end %>
+
+  </div>
 </div>
+</div>
+</div>
+</div>
+</section>

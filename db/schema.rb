@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20150310213012) do
     t.string   "price"
     t.string   "availability"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "price_info"
     t.integer  "proptype_id"
     t.string   "rentaltype"
@@ -60,10 +60,6 @@ ActiveRecord::Schema.define(version: 20150310213012) do
     t.boolean  "shortterm"
     t.boolean  "holiday"
     t.string   "state"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   create_table "proptypes", force: :cascade do |t|
