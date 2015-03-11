@@ -1,6 +1,24 @@
+<section>
+    <div class="row">
+      <div class="container">
+       <div class="col-md-12">
+         <div class="showtopbarbackground">
 
-<div class="row">
-  <div class="col-md-12">
+                </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section>
+   <div class="row"> <div class="showlistingbackground">
+   
+      <div class="container">
+       <div class="col-md-12">
+
+ 
     <div class="col-md-4">
       <%= image_tag @post.avatar.url(:medium) %>
 
@@ -27,7 +45,7 @@
           <h3 class="panel-title"><%=@post.title%></h3>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body darkcolor">
           <h4><strong>Description</strong></h4>
           <h5><%= @post.description %> </h5>
           <hr>
@@ -67,3 +85,11 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>

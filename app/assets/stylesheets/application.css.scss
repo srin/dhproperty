@@ -227,7 +227,7 @@ text-shadow: none !important;
 }
 a,
 a:visited {
-text-decoration: underline;
+//text-decoration: underline;
 }
 a[href]:after {
 content: " (" attr(href) ")";
@@ -6986,18 +6986,6 @@ margin-top: 30px;
 #bottombuttons {
 text-align: center;
 margin-top: 15px; 
-a:visited {
-color: #eee;
-}
-}
-
-#headersearch {
-background-color: rgba(0,140,186,1);
-height: 100px; 
-margin-top: -22px;
-h4 {
-color: #eee
-}
 }
 
 #listing {
@@ -7154,20 +7142,21 @@ span {display: none}
 }
 
 .navbar-default.trans-before li a{
-color:#fff;
-.btn-list-property{
-color: #333;
-}
+///color:#fff;
+///.btn-list-property{
+///color: #333;
+///}
 }
 
 .list-property .btn-list-property{
-color: #333;
-background: #fff;
+///color: #333;
+///background: #fff;
 }
 
+//works on search page 
 .list-property{
-color: #333;
-background: #fff;
+//color: #333; 
+//background: #fff;
 }
 
 .navbar-default.trans-before .navbar-brand{
@@ -7259,10 +7248,123 @@ width: 100%;
 margin-bottom: 50px;
 }
 
+.searchpanel{
+margin-top: 70px;
+background-color: rgba(0, 0, 0, 0.6);
+padding: 20px 7% 40px 7%;
+width: 100%;
+margin-bottom: 50px;
+}
+
 .btn-cancel.btn-default {
   width: 120px;
   height: 30px;
   font-size: 11px;
   border-radius: 4px;
   padding: 5px;
+}
+
+.searchbackground {
+position: fixed;
+z-index: 0;
+top: 0px;
+left: 0px;
+right: 0px;
+margin: 0px;
+border-style: none;
+border-width: 0px;
+overflow: hidden;
+overflow-y: scroll;
+background-clip: content-box;
+background-image: image-url("homeimage1.jpg"); 
+background-repeat:no-repeat;
+margin-top: -70px;
+//background-attachment: fixed;
+
+width:100%;
+height:200px;
+padding:0;
+margin:0;
+ z:99;
+ 
+}
+
+#headersearch {
+//background-color: rgba(0,140,186,1);
+height: 50px; 
+margin-top: -17px;
+z:100;
+h4 {
+color: #eee;;
+}
+}
+
+.listingbackground {
+  background-color: #F5F5F5;
+margin: 200px 0px 100px 0px ;
+//background-attachment: fixed;
+
+width:100%;
+height:100%;
+padding:0;
+ z:0;
+
+ overflow: hidden;
+overflow-y: scroll;
+}
+
+.darkcolor h1{
+color: #333;   
+}
+
+.darkcolor h2{
+color: #333;   
+}
+
+.darkcolor h3{
+color: #333;   
+}
+
+.darkcolor h4{
+color: #333;   
+}
+
+.darkcolor h5{
+color: #333;   
+}
+
+.showtopbarbackground {
+position: fixed;
+z-index: 0;
+top: 0px;
+left: 0px;
+right: 0px;
+margin: 0px;
+border-style: none;
+border-width: 0px;
+overflow: hidden;
+overflow-y: scroll;
+background-clip: content-box;
+background-image: image-url("homeimage1.jpg"); 
+background-repeat:no-repeat;
+margin-top: -70px;
+//background-attachment: fixed;
+
+width:100%;
+height:70px;
+padding:0;
+margin:0;
+ z:99;
+ 
+}
+
+.showlistingbackground {
+  background-color: #F5F5F5;
+margin: 70px 0px 100px 0px ;
+width:100%;
+height:100%;
+padding:0;
+ z:0;
+ overflow: hidden;
+overflow-y: scroll;
 }

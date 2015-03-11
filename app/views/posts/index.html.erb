@@ -1,69 +1,94 @@
-<div class="row">
+<section>
+    <div class="row">
+      <div class="container">
+       <div class="col-md-12">
+         <div class="searchbackground">
 
-  <div id="headersearch">
+           <div class="container">
+          <div class="searchpanel">
+            <div id="headersearch">
 
-    <div class="col-md-10 col-md-offset-2">
+              <h4><strong>Enter search criteria</strong></h4>
 
-    <h4><strong>Enter search criteria</strong></h4>
+              <%= search_form_for @q, url: search_posts_path,
+              html: { method: :post } do |f| %>
 
-      <%= search_form_for @q, url: search_posts_path,
-                        html: { method: :post } do |f| %>
+              <%= f.country_select :country_cont, :prompt => "Select a country" %>
 
-        <%= f.country_select :country_cont, :prompt => "Select a country" %>
+              <%= f.search_field :city_cont, :placeholder => "Town / city / state"%>
 
-        <%= f.search_field :city_cont, :placeholder => "Town / city / state"%>
+              <%= f.number_field :bedrooms_eq, :placeholder => "Number of bedrooms" %>
 
-        <%= f.number_field :bedrooms_eq, :placeholder => "Number of bedrooms" %>
+              <%= f.submit class: "btn btn-success" %>
 
-        <%= f.submit class: "btn btn-success" %>
+              <%= link_to "Refresh search", posts_path, class: "btn btn-info" %>
 
-        <%= link_to "Refresh search", posts_path, class: "btn btn-info" %>
+              <%end%>
 
-      <%end%>
-    </div>
-  </div>
-
-  <div id="title" align="center">
-    <h1>Current listings</h1>
-      <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-  </div>
-
-  <% @posts.each do |post| %>
-    <div class="col-md-8 col-md-offset-2" id="listing">
-      <div class="col-md-4" id="listimage">
-        <%= image_tag post.avatar.url(:thumb) %>
-      </div>
-
-      <div class="col-md-4" id="listtitle">
-        <h4><strong><%=post.title%></strong></h4>
-        <br>
-        <h5>Town / City: <%=post.city %></h5>
-        <h5>Country: <%=post.country_name %> </h5>
-        <h5>Number of bedrooms: <%=post.bedrooms %></h5>
-        
-      </div>
-
-      <div class="col-md-4">
-        <br>
-        <br>
-        <br>
-        <h5>Step-free access to property: <%= icon 'check' if post.sf_entry == true %> <%= icon 'times' if post.sf_entry == false %></h5>
-        <h5>Step-free access to a bedroom: <%= icon 'check' if post.sf_bedroom == true %> <%= icon 'times' if post.sf_bedroom == false %></h5>
-        <h5>Step-free access to a bathroom: <%= icon 'check' if post.sf_bathroom == true %> <%= icon 'times' if post.sf_bathroom == false %></h5>
-        <h5>Roll in shower: <%= icon 'check' if post.roll_shower == true%> <%= icon 'times' if post.roll_shower == false %></h5>
-      </div>
-
-      <div class="row" >
-        <div class="col-sm-4" align="left">
-          <%= link_to "View", post, class: "btn btn-primary" %>
-          <%= link_to "Contact host", new_post_order_path(post.id), class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
+  </div>
+
+</section>
+
+</section>
+
+<div class="row">
+<div class="listingbackground">
+   
+   <div class="container">
+    <div class="col-md-12">
+       
 
 
-    
 
-  <%end%>
+        <div id="title" class="darkcolor" align="center">
+          <h1 style="margin-top: 80px;">Current listings</h1>
+          <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+        </div>
 
-</div>
+        <% @posts.each do |post| %>
+        <div class="col-md-12" id="listing">
+          <div class="col-md-4" id="listimage">
+            <%= image_tag post.avatar.url(:thumb) %>
+          </div>
+
+          <div class="col-md-4 darkcolor" id="listtitle">
+            <h4><strong><%=post.title%></strong></h4>
+            <br>
+            <h5>Town / City: <%=post.city %></h5>
+            <h5>Country: <%=post.country_name %> </h5>
+            <h5>Number of bedrooms: <%=post.bedrooms %></h5>
+
+          </div>
+
+          <div class="col-md-4 darkcolor">
+            <br>
+            <br>
+            <br>
+            <h5><%= icon 'times' if post.sf_entry == false %><%= icon 'check' if post.sf_entry == true %> Step-free access to property  </h5>
+            <h5> <%= icon 'times' if post.sf_bedroom == false %><%= icon 'check' if post.sf_bedroom == true %> Step-free access to a bedroom </h5>
+            <h5><%= icon 'times' if post.sf_bathroom == false %><%= icon 'check' if post.sf_bathroom == true %> Step-free access to a bathroom </h5>
+            <h5><%= icon 'times' if post.roll_shower == false %><%= icon 'check' if post.roll_shower == true%> Roll in shower  </h5>
+          </div>
+
+          <div class="row" >
+            <div class="col-sm-4" align="left">
+              <%= link_to "View", post, class: "btn btn-primary" %>
+              <%= link_to "Contact host", new_post_order_path(post.id), class: "btn btn-success" %>
+            </div>
+          </div>
+
+        </div>
+
+        <%end%>
+
+      </div>
+    </div>
+  </div>
+
+</section>
