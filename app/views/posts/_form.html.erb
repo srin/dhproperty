@@ -61,6 +61,14 @@
             <%= f.file_field :avatar, class: "form-control" %>
           </div>
 
+          <div class="field">
+        <%= f.label :photo, "Select up to three more images to add", class: "formlabel" %>
+      
+         <%= file_field_tag "images[]", type: :file, multiple: true, class: "form-control"  %>
+      </div>
+
+
+
     <div class="field">
       <%= f.label :country, "Country", class: "formlabel" %><br>
       <%= f.country_select :country, :prompt => "Please select",  class: "form-control" %>
@@ -86,6 +94,9 @@
     </div>
 
     <br>
+
+
+    
 
     <div class="field">
       <%= f.check_box :sf_entry%>
