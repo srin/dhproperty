@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150310213012) do
     t.datetime "updated_at",          null: false
     t.string   "price_info"
     t.integer  "proptype_id"
+    t.string   "rentaltype"
     t.boolean  "longterm"
     t.boolean  "shortterm"
     t.boolean  "holiday"
