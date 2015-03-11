@@ -33,9 +33,9 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
               if params[:photos]
-        #===== The magic is here ;)
+        
         params[:photos].each { |photo|
-          @post.photos.create(photo: photo)
+          @post.photo.create(photo: photo)
         }
       end
       else
@@ -75,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :access_info, :country, :state, :city, :postcode, :latitute, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :price_info, :proptype, :longterm, :shortterm, :holiday, :user_id, :avatar)
+      params.require(:post).permit(:title, :description, :access_info, :country, :state, :city, :postcode, :latitute, :longitude, :bedrooms, :sf_entry, :sf_bathroom, :sf_bedroom, :roll_shower, :price, :price_info, :proptype, :longterm, :shortterm, :holiday, :user_id, :avatar, :photo)
     end
 end
